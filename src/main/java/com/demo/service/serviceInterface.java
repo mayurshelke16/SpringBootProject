@@ -3,6 +3,8 @@ package com.demo.service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.demo.model.Admin;
 
 public interface serviceInterface {
@@ -16,8 +18,6 @@ public Admin getAdminId(int id);
 public void deleteId(int id);
 
 public List<Admin> searchUser(String name);
-
-//public List<Admin> sortdob(Date DOB);
 
 public List<Admin> sortdob();
 

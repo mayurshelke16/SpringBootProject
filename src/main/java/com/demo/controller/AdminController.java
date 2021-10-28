@@ -3,6 +3,10 @@ package com.demo.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -24,12 +28,17 @@ import com.demo.service.serviceInterface;
 @Controller
 public class AdminController {
 
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(AdminController.class);
+
 	@Autowired
 	private serviceInterface serveInterface;
 	
 	@PostMapping("/adminadd")
-	public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin)
+	public ResponseEntity<Admin> addAdmin(@Valid @RequestBody Admin admin)
 	{
+		log.info("Request to add admin");
 		Admin adminsave=serveInterface.addAdmin(admin);
 		return new ResponseEntity<Admin>(adminsave,HttpStatus.CREATED);
 		
@@ -51,11 +60,11 @@ public class AdminController {
 	}
 	
 	
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteIDSoft(@PathVariable("id") int id)
 	{
 		serveInterface.deleteId(id);
-		System.out.println("delete");
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
 	
@@ -63,7 +72,6 @@ public class AdminController {
    public ResponseEntity<Void> deleteIDHard(@PathVariable("id") int id)
    {
 	   serveInterface.deleteId(id);
-		System.out.println("delete");
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	   
    }

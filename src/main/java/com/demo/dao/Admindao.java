@@ -13,15 +13,6 @@ import com.demo.model.Admin;
 @Repository
 public interface Admindao extends JpaRepository<Admin, Integer>{
 
-	//@Query(value = "select * from admin where name like '%j'",nativeQuery = true)
-
-	/*
-	 * @Query(value = "select * from admin", nativeQuery = true) List<Admin>
-	 * findAdmin();
-	 */
-
-
-	//@Query(value ="select * from admin where surname='name'",nativeQuery = true)
 	List<Admin> getByname(String name);
 
 

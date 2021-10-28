@@ -70,6 +70,7 @@ public class Admin {
 	
 	@NotNull
 	private String DOJ;
+	@NotNull
 	private boolean deleted = Boolean.FALSE;
 	}
 //	@Override

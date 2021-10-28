@@ -23,14 +23,11 @@ public class ServiceImplementation implements serviceInterface {
 
 	@Override
 	public List<Admin> getdata() {
-
 		return admindao.findAll();
-		 //return admindao.findAll();
 	}
 
 	@Override
 	public Admin getAdminId(int id) {
-		// TODO Auto-generated method stub
 		return admindao.findById(id).get();
 	}
 
