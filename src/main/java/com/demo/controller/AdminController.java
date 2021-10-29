@@ -62,10 +62,10 @@ public class AdminController {
 	
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteIDSoft(@PathVariable("id") int id)
+	public ResponseEntity<Admin> deleteIDSoft(@PathVariable("id") int id)
 	{
 		serveInterface.deleteId(id);
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<Admin>(HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/delete/{id}")
@@ -77,7 +77,7 @@ public class AdminController {
    }
 	
 	@PutMapping("/update")
-	public ResponseEntity<Admin> updatdetails(@RequestBody Admin admin)
+	public ResponseEntity<Admin> updatdetails(@Valid @RequestBody Admin admin)
 	{
 		Admin adminsaveData=serveInterface.update(admin);
 		return new ResponseEntity<Admin>(adminsaveData,HttpStatus.CREATED);

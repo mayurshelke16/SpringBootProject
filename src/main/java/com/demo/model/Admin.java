@@ -14,13 +14,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-
-import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,10 +46,9 @@ public class Admin {
 	
 	@NotNull
 	@Size(min=2, max=30)
-	@Pattern(regexp = "(?=.*[A-Z])[\\p{Punct}A-Z0-9 ]{1,32}", message = "Error")
 	private String name;
 	
-	@NotEmpty
+	@javax.validation.constraints.NotNull
 	private String surname;
 	
 	@NotNull
@@ -58,18 +56,23 @@ public class Admin {
 	
 	@NotEmpty
 	private String gender;
+	@NotNull
 	@Min(18)
 	private int age;
 	
+	@NotNull
 	@Email(message = "Please enter a valid e-mail address")
     private String email;
 
+	@NotNull
 	private String pincode;
+	
 	@NotNull
 	private String  DOB;
 	
 	@NotNull
 	private String DOJ;
+	
 	@NotNull
 	private boolean deleted = Boolean.FALSE;
 	}

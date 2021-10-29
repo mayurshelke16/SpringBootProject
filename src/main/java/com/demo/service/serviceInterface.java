@@ -15,7 +15,7 @@ public  List<Admin> getdata();
 
 public Admin getAdminId(int id);
 
-public void deleteId(int id);
+public Admin deleteId(int id);
 
 public List<Admin> searchUser(String name);
 
